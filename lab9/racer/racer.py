@@ -31,7 +31,7 @@ font = pygame.font.SysFont("Verdana", 60)
 font_small = pygame.font.SysFont("Verdana", 20)
 game_over = font.render("Game Over", True, BLACK)
 coin_image = pygame.image.load("coin.png")
-coin_image = pygame.transform.scale(coin_image, (100, 100))
+coin_image = pygame.transform.scale(coin_image, (50, 50))
 background = pygame.image.load("AnimatedStreet.png")
 
 # Create a white screen
@@ -151,6 +151,8 @@ while True:
         for coin in cns:
             coin.kill()
         COINS += 1
+        if COINS % 5 == 0: # lab 9
+            SPEED+=1
         pygame.display.update()
     if len(cns) == 0:
         C2 = Coin()
