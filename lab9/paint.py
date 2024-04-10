@@ -44,7 +44,11 @@ def main():
                 elif event.key == pygame.K_c:
                     drawCircle(screen, pygame.mouse.get_pos(), mode)
                 elif event.key == pygame.K_t:
+                    drawTriangle(screen, pygame.mouse.get_pos(), mode)
+                elif event.key == pygame.K_9:
                     drawTriangle2(screen, pygame.mouse.get_pos(), mode)
+                elif event.key == pygame.K_7:
+                    rombus(screen, pygame.mouse.get_pos(), mode)
 
             if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
                 # start a new line
@@ -104,9 +108,16 @@ def drawTriangle(screen, mouse_pos, color):
 def drawTriangle2(screen, mouse_pos, color):
     x = mouse_pos[0]
     y = mouse_pos[1]
-    pygame.draw.line(screen, color, (x, y), (x, y), 3)
-    pygame.draw.line(screen, color, (x, y), (x, y), 3)
-    pygame.draw.line(screen, color, (x, y + 107.5), (x, y), 3)
+    pygame.draw.line(screen, color, (x, y), (x + 100, y - 59), 3)
+    pygame.draw.line(screen, color, (x, y), (x + 100, y + 59), 3)
+    pygame.draw.line(screen, color, (x + 100, y - 59), (x + 100, y + 59), 3)
 
+def rombus(screen, mouse_pos, color):
+    x = mouse_pos[0]
+    y = mouse_pos[1]
+    pygame.draw.line(screen, color, (x, y), (x - 59, y + 100), 3)
+    pygame.draw.line(screen, color, (x, y), (x + 59, y + 100), 3)
+    pygame.draw.line(screen, color, (x, y + 200), (x - 59, y + 100), 3)
+    pygame.draw.line(screen, color, (x, y + 200), (x + 59, y + 100), 3)
 
 main()
